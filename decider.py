@@ -4,8 +4,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # ---- 0) Vocabulary (edit later) ----
-DEVICES = ["fan", "light", "bulb", "desk light"]
-ACTIONS = ["on", "off", "turn", "switch", "set", "increase", "decrease"]
+DEVICES = ["fan", "light", "bulb", "desk light", "lamp"]
+ACTIONS = ["on", "off", "turn", "switch", "set", "increase", "decrease", "toggle", "all_on", "all_off", "status"]
 MACRO_KEYWORDS = ["focus", "security"]
 
 # Seed KB (short Q/A only for MVP)
@@ -174,9 +174,19 @@ def decide(text: str) -> Tuple[str, Dict[str, Any], Dict[str, float]]:
     scores = {"DC": s_dc, "KB": s_kb, "MACRO": s_ma, "GPT": s_gp}
 
     if s_dc >= TH_DC:
-        return "DC", p_dc, scores
+        argument = ("DC", p_dc, scores)
+        from dc_operation import handle_dc
+        return handle_dc(*argument)
     if s_kb >= TH_KB:
         return "KB", p_kb, scores
     if s_ma >= TH_MACRO:
         return "MACRO", p_ma, scores
     return "GPT", p_gp, scores
+
+# if __name__ == '__main__':
+#     while True:
+#         question = input("Please enter a question: ")
+#         if question == "end":
+#             break
+#         anwere = decide(question)
+#         print(anwere)

@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 import chromedriver_autoinstaller
 
 # Path to your local HTML file
-Link = r'C:\Users\romme\PycharmProjects\pythonProject\voice.html'
+Link = r'C:\Users\romme\PycharmProjects\Alira\voice.html'
 
 # Chrome options
 chrome_options = webdriver.ChromeOptions()
