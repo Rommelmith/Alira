@@ -5,7 +5,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # ---- 0) Vocabulary (edit later) ----
 DEVICES = ["fan", "light", "bulb", "desk light", "lamp"]
-ACTIONS = ["on", "off", "turn", "switch", "set", "increase", "decrease", "toggle", "all_on", "all_off", "status"]
+ACTIONS = ["on", "off", "turn", "switch", "set", "increase", "decrease", "toggle", "all on", "all off", "status"]
 MACRO_KEYWORDS = ["focus", "security"]
 
 # Seed KB (short Q/A only for MVP)
@@ -175,6 +175,7 @@ def decide(text: str) -> Tuple[str, Dict[str, Any], Dict[str, float]]:
 
     if s_dc >= TH_DC:
         argument = ("DC", p_dc, scores)
+        print(argument)
         from dc_operation import handle_dc
         return handle_dc(*argument)
     if s_kb >= TH_KB:
@@ -183,10 +184,3 @@ def decide(text: str) -> Tuple[str, Dict[str, Any], Dict[str, float]]:
         return "MACRO", p_ma, scores
     return "GPT", p_gp, scores
 
-# if __name__ == '__main__':
-#     while True:
-#         question = input("Please enter a question: ")
-#         if question == "end":
-#             break
-#         anwere = decide(question)
-#         print(anwere)

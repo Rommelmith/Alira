@@ -1,6 +1,5 @@
 import asyncio
 import bus
-import test
 import decider
 async def session_starter():
     while True:

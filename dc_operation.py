@@ -14,7 +14,7 @@ DEVICE_TO_RELAY: Dict[str, int] = {
 }
 
 # Allowed actions and API wiring
-VALID_ACTIONS = {"on", "off", "toggle", "status", "all_on", "all_off"}
+VALID_ACTIONS = {"on", "off", "toggle", "status", "all_on", "all_off", "switch"}
 
 # --- HTTP session with retries & short timeouts (fast + resilient) ---
 _session = None
@@ -107,7 +107,6 @@ def handle_dc(
                     res_entry["status"] = get_status()
                 elif action == "all_on":
                     r = set_scene("on"); res_entry["http"] = r.status_code
-                    res_entry["post_status"] = get_status()
                 elif action == "all_off":
                     r = set_scene("off"); res_entry["http"] = r.status_code
                     res_entry["post_status"] = get_status()
@@ -155,7 +154,7 @@ def handle_dc(
                     res_entry["http"] = r.status_code
                     res_entry["pre_state"] = prior_state
                     res_entry["post_status"] = get_status()
-            elif action == "toggle":
+            elif action == "toggle" or action == "switch":
                 r = toggle_relay(relay)
                 res_entry["http"] = r.status_code
                 res_entry["pre_state"] = prior_state
@@ -176,71 +175,99 @@ def handle_dc(
 
 
 
-
-# Short version
-
 # import requests
-# from requests.adapters import HTTPAdapter
-# from urllib3.util.retry import Retry
 #
-# BASE_URL="http://192.168.10.100/api"
-# DEVICE_TO_RELAY={"switch1":0,"lamp":0,"bulb":1,"light":2,"switch2":3,"fan":3}
-# VALID_ACTIONS={"on","off","toggle","status","all_on","all_off"}
-# _s=None
-# def _sget():
-#     global _s
-#     if not _s:
-#         s=requests.Session()
-#         s.mount("http://",HTTPAdapter(max_retries=Retry(total=2,backoff_factor=0.1,status_forcelist=(429,500,502,503,504),allowed_methods={"GET"}),pool_connections=4,pool_maxsize=8))
-#         _s=s
-#     return _s
-# _api=lambda p,t=1.5:_sget().get(BASE_URL,params=p,timeout=t)
+# BASE_URL = "http://192.168.10.100/api"   # change if your device IP changes
 #
+# # Device name → relay index (allowing synonyms)
+# DEVICE_TO_RELAY = {
+#     "switch1": 0, "lamp": 0,
+#     "bulb": 1,
+#     "light": 2,
+#     "switch2": 3, "fan": 3,
+# }
+#
+# # Allowed actions
+# VALID_ACTIONS = {"on", "off", "toggle", "status", "all_on", "all_off", "switch"}
+#
+# def _api(params, timeout=1.5):
+#     # print(f"GET {BASE_URL} params={params}")  # ← uncomment for debug
+#     return requests.get(BASE_URL, params=params, timeout=timeout)
+#
+# # --- Low-level helpers mapping to your firmware API ---
 # def get_status():
-#     r=_api({"action":"status"}); r.raise_for_status()
-#     s=r.text.strip()
-#     try:m=int(s)
-#     except:m=int("".join(ch for ch in s if ch.isdigit()) or "0")
-#     return {"bitmask":m,"relays":{i:bool(m>>i&1) for i in range(4)}}
+#     r = _api({"action": "status"})
+#     r.raise_for_status()
+#     bitmask_str = r.text.strip()
+#     try:
+#         mask = int(bitmask_str)
+#     except ValueError:
+#         mask = int("".join(ch for ch in bitmask_str if ch.isdigit()) or "0")
+#     return {"bitmask": mask, "relays": {i: bool((mask >> i) & 1) for i in range(4)}}
 #
-# set_relay=lambda i,st:_api({"action":"set","relay":i,"state":st})
-# toggle_relay=lambda i:_api({"action":"toggle","relay":i})
-# set_scene=lambda st:_api({"action":"scene","state":st})
+# def set_relay(relay, state):
+#     return _api({"action": "set", "relay": relay, "state": state})
 #
-# def handle_dc(decision,payload,scores):
-#     out={"ok":True,"decision":decision,"scores":scores,"results":[]}
-#     it=payload.get("intents") if isinstance(payload.get("intents"),list) else ([payload] if ("device" in payload or "action" in payload) else [])
-#     if not it:return {"ok":False,"error":"No intents provided.",**out}
-#     try:before=get_status()
-#     except Exception as e:before={"bitmask":None,"relays":{}};out["status_read_error"]=str(e)
-#     for a in it:
-#         act=str(a.get("action","")).lower().strip(); dev=a.get("device"); res={"device":dev,"action":act}
-#         if dev is None and act in ("status","all_on","all_off"):
-#             try:
-#                 if act=="status":res["status"]=get_status()
-#                 elif act=="all_on":r=set_scene("on");res["http"]=r.status_code;res["post_status"]=get_status()
-#                 else:r=set_scene("off");res["http"]=r.status_code;res["post_status"]=get_status()
-#             except Exception as e:out["ok"]=False;res["error"]=f"{type(e).__name__}: {e}"
-#             out["results"].append(res);continue
-#         if act not in VALID_ACTIONS:out["ok"]=False;res["error"]=f"Unknown action '{act}'.";out["results"].append(res);continue
-#         if dev is None:out["ok"]=False;res["error"]="Missing 'device' for this action.";out["results"].append(res);continue
-#         rel=DEVICE_TO_RELAY.get(str(dev).lower().strip())
-#         if rel is None:out["ok"]=False;res["error"]=f"Unknown device '{dev}'.";out["results"].append(res);continue
-#         try:prior=before.get("relays",{}).get(rel)
-#         except:prior=None
-#         try:
-#             if act in ("on","off"):
-#                 if prior is not None and ((act=="on" and prior) or (act=="off" and not prior)):
-#                     res.update({"skipped":True,"reason":"Already in requested state","pre_state":prior})
-#                 else:
-#                     r=set_relay(rel,act);res["http"]=r.status_code;res["pre_state"]=prior;res["post_status"]=get_status()
-#             elif act=="toggle":
-#                 r=toggle_relay(rel);res["http"]=r.status_code;res["pre_state"]=prior;res["post_status"]=get_status()
-#             elif act=="status":res["status"]=get_status()
-#             else:
-#                 r=set_scene("on" if act=="all_on" else "off");res["http"]=r.status_code;res["post_status"]=get_status()
-#         except Exception as e:out["ok"]=False;res["error"]=f"{type(e).__name__}: {e}"
+# def toggle_relay(relay):
+#     return _api({"action": "toggle", "relay": relay})
+#
+# def set_scene(state):
+#     return _api({"action": "scene", "state": state})
+#
+# # --- Core dispatcher ---
+# def handle_dc(decision, payload, scores):
+#     out = {"ok": True, "decision": decision, "scores": scores, "results": []}
+#
+#     # Normalize intents
+#     if isinstance(payload.get("intents"), list):
+#         intents = payload["intents"]
+#     elif "device" in payload or "action" in payload:
+#         intents = [payload]
+#     else:
+#         return {"ok": False, "error": "No intents provided.", **out}
+#
+#     for intent in intents:
+#         action = str(intent.get("action", "")).lower().strip()
+#         device = intent.get("device")
+#         res = {"device": device, "action": action}
+#
+#         # Global actions (no device)
+#         if device is None and action in ("status", "all_on", "all_off"):
+#             if action == "status":
+#                 res["status"] = get_status()
+#             elif action == "all_on":
+#                 res["http"] = set_scene("on").status_code
+#             else:  # all_off
+#                 res["http"] = set_scene("off").status_code
+#             out["results"].append(res)
+#             continue
+#
+#         # Validation (no per-intent error text; just mark top-level ok=False)
+#         if action not in VALID_ACTIONS:
+#             out["ok"] = False
+#             out["results"].append(res)
+#             continue
+#         if device is None:
+#             out["ok"] = False
+#             out["results"].append(res)
+#             continue
+#
+#         relay = DEVICE_TO_RELAY.get(str(device).lower().strip())
+#         if relay is None:
+#             out["ok"] = False
+#             out["results"].append(res)
+#             continue
+#
+#         # Execute
+#         if action in ("on", "off"):
+#             res["http"] = set_relay(relay, action).status_code
+#         elif action in ("toggle", "switch"):
+#             res["http"] = toggle_relay(relay).status_code
+#         elif action == "status":
+#             res["status"] = get_status()
+#         elif action in ("all_on", "all_off"):
+#             res["http"] = set_scene("on" if action == "all_on" else "off").status_code
+#
 #         out["results"].append(res)
+#
 #     return out
-
-
