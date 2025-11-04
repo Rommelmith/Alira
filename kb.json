@@ -1,0 +1,72 @@
+[
+  {
+    "id": "profile-001",
+    "question": "What name do I prefer to be called?",
+    "answer": "You prefer to be called Roomi (you also go by Rommel)."
+  },
+  {
+    "id": "goal-ml-001",
+    "question": "What is my main long-term learning goal?",
+    "answer": "You want to master machine learning and AI with a structured, step-by-step plan from foundations to expert level."
+  },
+  {
+    "id": "project-ali-001",
+    "question": "What is Alira?",
+    "answer": "Alira is your long-term personal AI assistant project for vision, automation, and home control."
+  },
+  {
+    "id": "hardware-001",
+    "question": "What edge hardware do I use for my projects?",
+    "answer": "You use a Raspberry Pi 4B (64-bit), a Coral USB Accelerator, and NodeMCU ESP8266 relays."
+  },
+  {
+    "id": "laptop-001",
+    "question": "What is my main laptop for AI and vision work?",
+    "answer": "Alienware 18 Area-51 (AA18250) with Intel Core i9-275HX and 64 GB RAM running Windows 11 Home 24H2."
+  },
+  {
+    "id": "study-001",
+    "question": "What am I currently studying?",
+    "answer": "You are doing A-Levels with a strong focus on Computer Science, Mathematics, Further Mathematics, and Physics."
+  },
+  {
+    "id": "intern-001",
+    "question": "Where did I do an ML/AI internship?",
+    "answer": "You interned at Safe City Lahore in the ML/AI department."
+  },
+  {
+    "id": "sports-001",
+    "question": "What is my cricket background?",
+    "answer": "You represented Punjab U-13 and Lahore U-16 in cricket."
+  },
+  {
+    "id": "run-goal-001",
+    "question": "What is my 10 km running goal?",
+    "answer": "You aim to run 10 km cross-country in under 32 minutes by Dec 2025 or Jan 2026."
+  },
+  {
+    "id": "cars-001",
+    "question": "What car-related projects am I passionate about?",
+    "answer": "You enjoy restoring classic cars and building unique automotive projects, including a Land Cruiser 70 Series restoration."
+  },
+  {
+    "id": "server-001",
+    "question": "What spare machine can I use as a local server?",
+    "answer": "A Dell Latitude 5490 with an Intel i5-8250U and 16 GB RAM."
+  },
+  {
+    "id": "style-001",
+    "question": "How do I like explanations and coding help?",
+    "answer": "You prefer brief, step-by-step guidance and you only want Python for code."
+  },
+  {
+    "id": "focus-001",
+    "question": "What should I be reminded about my working style?",
+    "answer": "You get distracted by new shiny things and want warnings if you stray off your focused path."
+  },
+  {
+    "id": "kb-usage-001",
+    "question": "What does my knowledge base primarily store?",
+    "answer": "Personal facts, project notes, and preferences to answer questions quickly in natural language."
+  }
+]
