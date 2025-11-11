@@ -58,10 +58,22 @@ def load_or_build_index(items, cache_path="kbtfid.pkl", kb_path = KB_JSON):
             pickle.dump({"vectorizer": VECT, "matrix": MATRIX, "ids": IDS}, f)
 
 
+def query_kb(q, top_k=1):
+    global ITEMS, IDS, VECT, MATRIX
+    if not ITEMS or not IDS or VECT is None or MATRIX is None:
+        return []
 
+    # 1) vectorize the query
+    q_vec = VECT.transform([q])
 
+    # 2) cosine similarity: query vs all rows in MATRIX
+    sims = cosine_similarity(q_vec, MATRIX)[0]   # shape: (n_items,)
 
+    # 3) get top-k indices (highest scores first)
+    idxs = sims.argsort()[::-1][:top_k]
 
+    # 4) map ids -> items once (fast lookup)
+    id_to_item = {it["id"]: it for it in ITEMS}
 
     # 5) build results
     results = []
