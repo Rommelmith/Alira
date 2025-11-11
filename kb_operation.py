@@ -63,3 +63,21 @@ def load_or_build_index(items, cache_path="kbtfid.pkl", kb_path = KB_JSON):
 
 
 
+    # 5) build results
+    results = []
+    for i in idxs:
+        item_id = IDS[i]
+        it = id_to_item.get(item_id)
+        if not it:
+            continue
+        results.append({
+            "score": float(sims[i]),
+            "id": it["id"],
+            "question": it["question"],
+            "answer": it["answer"]
+        })
+
+    if results:
+        return results[0]["answer"]
+    else:
+        return None
