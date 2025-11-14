@@ -2,6 +2,7 @@ import re
 from typing import Dict, Tuple, Any
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from kb_operation import query_kb
 
 # ---- 0) Vocabulary (edit later) ----
 DEVICES = ["fan", "light", "bulb", "desk light", "lamp"]
@@ -9,21 +10,21 @@ ACTIONS = ["on", "off", "turn", "switch", "set", "increase", "decrease", "toggle
 MACRO_KEYWORDS = ["focus", "security"]
 
 # Seed KB (short Q/A only for MVP)
-KB_ITEMS = [
-    ("what is 1kz head bolt torque", "118 Nm"),
-    ("wifi ssid name", "Nova"),
-    ("wifi password", "roomi100"),
-    ("wifi credentials", "Nova and the password is roomi100"),
-    ("fan relay pin", "D1"),
-    ("desk light pin", "D2"),
-    ("focus recipe", "Desk light 30%, fan 30%, 50-minute timer."),
-    ("camera lab steps", "Power capture card, start viewer, check Coral USB, run pipeline."),
-]
-
-# Build a TF-IDF vector index once
-_KB_QUERIES = [q for (q, _) in KB_ITEMS]
-_VECT = TfidfVectorizer().fit(_KB_QUERIES)
-_KB_MATRIX = _VECT.transform(_KB_QUERIES)
+# KB_ITEMS = [
+#     ("what is 1kz head bolt torque", "118 Nm"),
+#     ("wifi ssid name", "Nova"),
+#     ("wifi password", "roomi100"),
+#     ("wifi credentials", "Nova and the password is roomi100"),
+#     ("fan relay pin", "D1"),
+#     ("desk light pin", "D2"),
+#     ("focus recipe", "Desk light 30%, fan 30%, 50-minute timer."),
+#     ("camera lab steps", "Power capture card, start viewer, check Coral USB, run pipeline."),
+# ]
+#
+# # Build a TF-IDF vector index once
+# _KB_QUERIES = [q for (q, _) in KB_ITEMS]
+# _VECT = TfidfVectorizer().fit(_KB_QUERIES)
+# _KB_MATRIX = _VECT.transform(_KB_QUERIES)
 
 # --- Multi-device parsing helpers ---
 _AND_SPLIT_RE = re.compile(r"\band\b")
@@ -136,14 +137,11 @@ def detect_dc(text: str) -> Tuple[float, Dict[str, Any]]:
     return 0.85, {"device": dev, "action": act}
 
 def detect_kb(text: str) -> Tuple[float, Dict[str, Any]]:
-    t = _norm(text)
-    q_vec = _VECT.transform([t])
-    sims = cosine_similarity(q_vec, _KB_MATRIX)[0]
-    best_i = int(sims.argmax())
-    best_score = float(sims[best_i])
+    answer = query_kb(text)
+    best_score = answer["score"]
     if best_score < 0.0:  # never happens; here for completeness
         return 0.0, {}
-    return best_score, {"answer": KB_ITEMS[best_i][1], "kb_query": KB_ITEMS[best_i][0]}
+    return best_score, {"answer": answer["answer"]}
 
 def detect_macro(text: str) -> Tuple[float, Dict[str, Any]]:
     t = _norm(text)
@@ -179,8 +177,10 @@ def decide(text: str) -> Tuple[str, Dict[str, Any], Dict[str, float]]:
         from dc_operation import handle_dc
         return handle_dc(*argument)
     if s_kb >= TH_KB:
-        return "KB", p_kb, scores
+        return p_kb.get("answer")
     if s_ma >= TH_MACRO:
         return "MACRO", p_ma, scores
     return "GPT", p_gp, scores
 
+if __name__ == "__main__":
+    print(decide("What is my main long-term learning goal"))

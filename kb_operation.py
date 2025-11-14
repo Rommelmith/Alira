@@ -41,9 +41,9 @@ def load_or_build_index(items, cache_path="kbtfid.pkl", kb_path = KB_JSON):
             IDS = packed["ids"]
             return
         except Exception as e:
-            pass
+            cache_fresh = False
 
-    else:
+    if not cache_fresh:
         IDS = [item["id"] for item in items]
         corps = [item["question"] + " " + item["answer"] for item in items]
 
@@ -59,6 +59,8 @@ def load_or_build_index(items, cache_path="kbtfid.pkl", kb_path = KB_JSON):
 
 
 def query_kb(q, top_k=1):
+    items = load_kb()
+    load_or_build_index(items, cache_path="kbtfid.pkl")
     global ITEMS, IDS, VECT, MATRIX
     if not ITEMS or not IDS or VECT is None or MATRIX is None:
         return []
@@ -90,6 +92,16 @@ def query_kb(q, top_k=1):
         })
 
     if results:
-        return results[0]["answer"]
+         score = results[0]["score"]
+         answer = results[0]["answer"]
+         return_result = {
+             "answer" : answer,
+             "score" : score
+         }
+         return return_result
     else:
         return None
+
+if __name__ == "__main__":
+    anwere = query_kb("What name do I prefer to be called")
+    print(anwere)
