@@ -9,23 +9,6 @@ DEVICES = ["fan", "light", "bulb", "desk light", "lamp"]
 ACTIONS = ["on", "off", "turn", "switch", "set", "increase", "decrease", "toggle", "all on", "all off", "status"]
 MACRO_KEYWORDS = ["focus", "security"]
 
-# Seed KB (short Q/A only for MVP)
-# KB_ITEMS = [
-#     ("what is 1kz head bolt torque", "118 Nm"),
-#     ("wifi ssid name", "Nova"),
-#     ("wifi password", "roomi100"),
-#     ("wifi credentials", "Nova and the password is roomi100"),
-#     ("fan relay pin", "D1"),
-#     ("desk light pin", "D2"),
-#     ("focus recipe", "Desk light 30%, fan 30%, 50-minute timer."),
-#     ("camera lab steps", "Power capture card, start viewer, check Coral USB, run pipeline."),
-# ]
-#
-# # Build a TF-IDF vector index once
-# _KB_QUERIES = [q for (q, _) in KB_ITEMS]
-# _VECT = TfidfVectorizer().fit(_KB_QUERIES)
-# _KB_MATRIX = _VECT.transform(_KB_QUERIES)
-
 # --- Multi-device parsing helpers ---
 _AND_SPLIT_RE = re.compile(r"\band\b")
 _ON_RE  = re.compile(r"\b(?:turn on|switch on|on)\b")
@@ -160,7 +143,7 @@ def detect_gpt_need(text: str) -> Tuple[float, Dict[str, Any]]:
 
 # ---- router ----
 TH_DC = 0.85
-TH_KB = 0.50
+TH_KB = 0.10
 TH_MACRO = 0.75
 
 def decide(text: str) -> Tuple[str, Dict[str, Any], Dict[str, float]]:

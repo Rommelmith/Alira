@@ -1,72 +1,753 @@
 [
-  {
-    "id": "profile-001",
-    "question": "What name do I prefer to be called?",
-    "answer": "You prefer to be called Roomi (you also go by Rommel)."
+{
+    "id": "identity-001",
+    "question": "Who am I in terms of personal identity, preferred name, and how I want my AI assistant, Alira, to address me during normal interaction or technical communication?",
+    "answer": "You prefer to be called Roomi, even though your full name is Rommel. You like Alira and all your personal digital systems to refer to you as Roomi because it feels natural, personal, and consistent across all your projects, devices, and scripts."
   },
   {
-    "id": "goal-ml-001",
-    "question": "What is my main long-term learning goal?",
-    "answer": "You want to master machine learning and AI with a structured, step-by-step plan from foundations to expert level."
+    "id": "identity-002",
+    "question": "What is my core learning philosophy and how do I approach technical problems, engineering challenges, and new domains of knowledge in AI, programming, and electronics?",
+    "answer": "Your philosophy is that nothing should work as a black box. You must understand every layer beneath the surface before you accept a solution. You want to know why something works, why it failed earlier, and what hidden mechanisms control the behavior. This makes your learning deeper and long-lasting."
   },
   {
-    "id": "project-ali-001",
-    "question": "What is Alira?",
-    "answer": "Alira is your long-term personal AI assistant project for vision, automation, and home control."
+    "id": "identity-003",
+    "question": "What tendencies or weaknesses do I have regarding distraction, scattered focus, and chasing multiple exciting ideas at the same time?",
+    "answer": "You easily drift into new shiny projects because you love building. This causes occasional loss of focus. You want Alira to warn you gently whenever you deviate from your main goals, especially machine learning mastery and your major ongoing engineering projects."
   },
+  {
+    "id": "identity-004",
+    "question": "What is my preferred style of explanation when I learn programming or engineering concepts from an AI assistant?",
+    "answer": "You prefer short, clear, step-by-step guidance. You want explanations in plain English without assumptions that you know something you have not explicitly learned. You also prefer that all code is written only in Python unless you request otherwise."
+  },
+  {
+    "id": "identity-005",
+    "question": "What is my general approach toward failure, debugging, and repeated mistakes in code, hardware, or learning?",
+    "answer": "You treat debugging like investigation. You replay mistakes until you fully understand them. You never accept blind fixes; instead, you reconstruct what went wrong and why. This makes your long-term skill extremely strong and self-reliable."
+  },
+
+  {
+    "id": "education-001",
+    "question": "What academic path am I currently following, what subjects am I studying, and how does this shape my long-term goals?",
+    "answer": "You are studying A-Levels at Aitchison College with Mathematics, Further Mathematics, Computer Science, and Physics. These subjects are the foundations of your ambition to become a strong engineer, machine learning expert, and AI developer."
+  },
+  {
+    "id": "education-002",
+    "question": "What is my O Level academic history including grades and its impact on my confidence and future planning?",
+    "answer": "Your O Level grades include 3 A* (Maths, Physics, Urdu), 4 As (Additional Maths, Computer Science, Pakistan Studies, Islamiyat), and 1 C (English). These results convinced you that STEM is your natural strength and motivated you to improve English for SAT and university admissions."
+  },
+  {
+    "id": "education-003",
+    "question": "What are my key university goals, especially related to studying computer science, engineering, and artificial intelligence abroad?",
+    "answer": "You aim to study Computer Science or Engineering in the United States at a university with strong AI research, co-op opportunities, and affordability. You are targeting institutions like Georgia Tech, Northeastern, Purdue, UIUC, and universities where strong tech internships are accessible."
+  },
+  {
+    "id": "education-004",
+    "question": "What is my plan for improving SAT English and achieving a balanced SAT score for US university admissions?",
+    "answer": "You scored 390 in SAT English on your diagnostic test and aim to raise this to 700+. You are focusing on grammar, comprehension, vocabulary, and repeated practice under timed conditions to improve significantly before the August exam."
+  },
+  {
+    "id": "education-005",
+    "question": "What is my long-term academic vision beyond undergraduate studies in computer science or engineering?",
+    "answer": "Your long-term academic vision includes mastering AI, possibly pursuing research-level work, and using your university years to build strong portfolios, internships, and side projects capable of becoming early-stage startups."
+  },
+
+  {
+    "id": "goals-001",
+    "question": "What is my primary long-term goal in machine learning and artificial intelligence and how does it influence all my projects and decisions?",
+    "answer": "Your main long-term goal is to become a world-class AI and machine learning engineer capable of building independent products, publishing meaningful work, and eventually creating commercial AI tools or startups."
+  },
+  {
+    "id": "goals-002",
+    "question": "What multi-year roadmap have I set for myself that includes learning, product-building, skill development, and professional growth?",
+    "answer": "Your roadmap includes mastering ML theory, developing production-level projects like Alira, improving SAT and English scores, building strong software engineering skills, and securing internships early during university."
+  },
+  {
+    "id": "goals-003",
+    "question": "What athletic goal am I pursuing related to running and why is it personally meaningful?",
+    "answer": "You aim to run a 10 km cross-country race in under 32 minutes by Dec 2025 or Jan 2026. This goal is personal because your brother once held the record but someone else broke it. You want to reclaim it as a matter of pride and family legacy."
+  },
+  {
+    "id": "goals-004",
+    "question": "What are my entrepreneurial dreams related to technology and artificial intelligence?",
+    "answer": "You want to build something exceptional, unique, and technically impressive—either an AI product, ML-based tool, or an advanced automation system. You often mention wanting to build your own empire entirely from your own skills."
+  },
+  {
+    "id": "goals-005",
+    "question": "How do cars, engineering, and hands-on mechanical work fit into my larger long-term ambitions?",
+    "answer": "You see car restoration, mechanical troubleshooting, and automotive engineering as both hobbies and entrepreneurial opportunities. You love rebuilding machines from scratch and want these skills to eventually support business ideas or content creation."
+  },
+
+  {
+    "id": "projects-001",
+    "question": "What is the Alira project, what is its architecture, and why is it one of my most important long-term achievements?",
+    "answer": "Alira is your personal AI assistant designed like Jarvis. It integrates a phone-based vision pipeline, a Raspberry Pi running websocket event listeners, a multi-stage decision engine, a TF-IDF knowledge base, NodeMCU relay control, and speech recognition. Alira is a multi-year passion project representing your mastery of ML, vision, automation, and backend systems."
+  },
+  {
+    "id": "projects-002",
+    "question": "How does my Android vision app operate and what ML models power its face and object detection pipelines?",
+    "answer": "Your Android vision app uses CameraX, MediaPipe, and TFLite. It performs object detection using a MobileNet model and face recognition using 128-dimensional embeddings. It sends face_enter, face_update, object_seen, and similar events to the Pi over websockets for Alira to react."
+  },
+  {
+    "id": "projects-003",
+    "question": "What is my home automation system built using NodeMCU ESP8266, and how does Python on the Raspberry Pi interact with it?",
+    "answer": "Your NodeMCU ESP8266 hosts a 4-channel relay module controlling lights, fans, and bulbs in your room. It exposes an HTTP API at 192.168.10.100/api. Your Raspberry Pi backend uses dc_operation.py to send commands with retries, idempotency checks, and relay state validation."
+  },
+  {
+    "id": "projects-004",
+    "question": "What is the structure and role of my multi-intent decision engine written in Python?",
+    "answer": "Your decider.py file contains device control parsing, multi-intent support through natural language splitting, TF-IDF knowledge retrieval, macro triggers, and GPT fallback routing. It is the central brain that interprets voice commands and dispatches actions."
+  },
+  {
+    "id": "projects-005",
+    "question": "What is the purpose of my session management system using face recognition to activate Alira?",
+    "answer": "You implemented session_active, session_starter(), and watch_dog() loops that activate Alira only when your face is recognized and deactivate after 30 seconds of no detection. This prevents accidental or unwanted voice processing."
+  },
+
+  {
+    "id": "projects-006",
+    "question": "What is my car expense tracker SaaS idea and how do I intend to make it valuable and daily-usable for customers?",
+    "answer": "You want to create a car expense tracker that feels like Strava for vehicle ownership. It should track expenses, maintenance, fuel logs, repairs, reminders, and possibly OBD2 live statistics—making it a daily tool that car owners want to use, not a boring spreadsheet."
+  },
+  {
+    "id": "projects-007",
+    "question": "What is the vision behind my drone-based mesh networking and AI autonomy project?",
+    "answer": "You want to build drones that connect through MANET/Haven mesh networks for long-range control, real-time vision, AI-based decision making, and secure communication without relying on cellular networks."
+  },
+  {
+    "id": "projects-008",
+    "question": "What robotics ambitions do I have regarding humanoid robots like Sophia or Tesla Optimus?",
+    "answer": "You aspire to eventually build a humanoid robot integrating vision, movement, ML, and autonomy. You see this as a long-term engineering challenge that unifies your love for software and hardware."
+  },
+  {
+    "id": "projects-009",
+    "question": "What role does my Alienware laptop play in my AI, ML, and computer-vision development pipeline?",
+    "answer": "Your Alienware 18 Area-51 laptop with an Intel i9-275HX and RTX 5080 GPU is your main machine for running local LLMs, heavy ML training, and advanced computer-vision work. It is where your future distilled GPT models and advanced assistants will run."
+  },
+  {
+    "id": "projects-010",
+    "question": "How do my Django projects fit into my long-term software engineering goals?",
+    "answer": "Django is your chosen framework for backend systems. You plan to use it to build SaaS tools like the car tracker, REST APIs for your ML pipelines, dashboards for device control, and full-stack apps that integrate with IoT devices."
+  },
+
   {
     "id": "hardware-001",
-    "question": "What edge hardware do I use for my projects?",
-    "answer": "You use a Raspberry Pi 4B (64-bit), a Coral USB Accelerator, and NodeMCU ESP8266 relays."
+    "question": "What hardware setup do I use for local machine learning and AI experimentation?",
+    "answer": "Your setup includes a Raspberry Pi 4B, Google Coral USB accelerator, Alienware laptop, multiple microcontrollers including NodeMCU ESP8266, and custom relay boards. Each plays a role in vision, inference, or home automation."
   },
   {
-    "id": "laptop-001",
-    "question": "What is my main laptop for AI and vision work?",
-    "answer": "Alienware 18 Area-51 (AA18250) with Intel Core i9-275HX and 64 GB RAM running Windows 11 Home 24H2."
+    "id": "hardware-002",
+    "question": "What devices form the backbone of my home AI automation ecosystem?",
+    "answer": "You use a Pi running websockets, a NodeMCU relay controller, a local browser-based speech recognition module, the Android vision app, and occasionally laptops acting as servers or inference machines."
   },
   {
-    "id": "study-001",
-    "question": "What am I currently studying?",
-    "answer": "You are doing A-Levels with a strong focus on Computer Science, Mathematics, Further Mathematics, and Physics."
+    "id": "hardware-003",
+    "question": "What is the purpose of my second static-IP laptop used as a potential server?",
+    "answer": "Your Dell Latitude 5490 acts as a spare server for hosting Django apps, APIs, or other backend workloads when needed."
   },
   {
-    "id": "intern-001",
-    "question": "Where did I do an ML/AI internship?",
-    "answer": "You interned at Safe City Lahore in the ML/AI department."
+    "id": "hardware-004",
+    "question": "What are the important technical specs of my Alienware laptop?",
+    "answer": "Your Alienware 18 Area-51 (AA18250) laptop contains an Intel i9-275HX, 64 GB RAM, RTX 5080 GPU, and Windows 11 Home 24H2. It is built for heavy AI workloads and vision pipelines."
   },
   {
-    "id": "sports-001",
-    "question": "What is my cricket background?",
-    "answer": "You represented Punjab U-13 and Lahore U-16 in cricket."
+    "id": "hardware-005",
+    "question": "What WiFi and local network setup do I use for inter-device communication?",
+    "answer": "Your main WiFi network is 'Nova'. The NodeMCU uses static IP 192.168.10.100. Your Pi communicates with it directly without needing external internet."
+  },
+
+  {
+    "id": "auto-001",
+    "question": "What cars have I restored or worked on as personal engineering projects?",
+    "answer": "You restored a 1991 Ford Escort convertible, worked on a Land Cruiser 70 Series rebuild, and maintain a Toyota Prado V6 3400cc. These projects show your mechanical ability and passion for engineering."
   },
   {
-    "id": "run-goal-001",
-    "question": "What is my 10 km running goal?",
-    "answer": "You aim to run 10 km cross-country in under 32 minutes by Dec 2025 or Jan 2026."
+    "id": "auto-002",
+    "question": "What mechanical skills do I use when restoring cars?",
+    "answer": "You handle wiring, relays, engine troubleshooting, part replacement, mechanical inspection, and research-based restoration without relying on mechanics."
   },
   {
-    "id": "cars-001",
-    "question": "What car-related projects am I passionate about?",
-    "answer": "You enjoy restoring classic cars and building unique automotive projects, including a Land Cruiser 70 Series restoration."
+    "id": "auto-003",
+    "question": "What are my long-term automotive ambitions?",
+    "answer": "You want to build street-legal kit/exo cars from scratch in Lahore with fiberglass bodies and 200+ hp engines at affordable prices for enthusiasts."
   },
   {
-    "id": "server-001",
-    "question": "What spare machine can I use as a local server?",
-    "answer": "A Dell Latitude 5490 with an Intel i5-8250U and 16 GB RAM."
+    "id": "auto-004",
+    "question": "What car-related business ideas do I have?",
+    "answer": "You want to buy, restore, and sell classic cars, create automotive content, and possibly merge your engineering with entrepreneurship."
   },
+  {
+    "id": "auto-005",
+    "question": "Why do I love restoring cars?",
+    "answer": "Car restoration combines mechanical engineering, research, problem-solving, and creativity. It also gives you freedom to build something with soul, not just function."
+  },
+
   {
     "id": "style-001",
-    "question": "How do I like explanations and coding help?",
-    "answer": "You prefer brief, step-by-step guidance and you only want Python for code."
+    "question": "How do I prefer my AI assistant to respond stylistically and structurally?",
+    "answer": "You like responses poetic but blunt, deeply honest, forward-thinking, and structured. You prefer high-quality reasoning and minimal sugar-coating."
   },
   {
-    "id": "focus-001",
-    "question": "What should I be reminded about my working style?",
-    "answer": "You get distracted by new shiny things and want warnings if you stray off your focused path."
+    "id": "style-002",
+    "question": "How should explanations be given during coding help?",
+    "answer": "All code should be Python only. Explanations should be step-by-step, slow, and without assumptions about prior knowledge."
   },
   {
-    "id": "kb-usage-001",
-    "question": "What does my knowledge base primarily store?",
-    "answer": "Personal facts, project notes, and preferences to answer questions quickly in natural language."
+    "id": "style-003",
+    "question": "What tone do I prefer from AI systems?",
+    "answer": "You prefer a confident, lyrical, opinionated tone with warmth and directness."
+  },
+  {
+    "id": "style-004",
+    "question": "Do I like long or short explanations?",
+    "answer": "You prefer long, detailed explanations for big topics but short, clear answers for simple questions."
+  },
+  {
+    "id": "style-005",
+    "question": "What is my stance on focus and distractions?",
+    "answer": "You always want reminders if you drift off your main goals."
+  },
+
+  {
+    "id": "misc-001",
+    "question": "What assistant capabilities do I rely on most frequently?",
+    "answer": "You rely on knowledge recall, device control, study help, ML development, and debugging support."
+  },
+  {
+    "id": "misc-002",
+    "question": "What do I value most in an AI assistant?",
+    "answer": "Consistency, deep memory, honesty, clarity, and structured reasoning."
+  },
+  {
+    "id": "misc-003",
+    "question": "Which domains of knowledge should Alira always prioritize?",
+    "answer": "Machine learning, Python, computer vision, electronics, mechanics, and automotive engineering."
+  },
+  {
+    "id": "misc-004",
+    "question": "What motivates me to build long-term projects like Alira?",
+    "answer": "You love building systems with soul—projects that combine multiple disciplines and feel alive."
+  },
+  {
+    "id": "misc-005",
+    "question": "What is my overall life philosophy?",
+    "answer": "You want to build something extraordinary on your own, from raw skill and unbreakable persistence."
+  },
+
+  {
+    "id": "identity-006",
+    "question": "How does my personality combine technical ambition with emotional drive, especially in the context of long-term projects like Alira, AI engineering, and sports challenges?",
+    "answer": "Your personality mixes deep technical obsession with emotional intensity. When a project matters to you—whether Alira, a car rebuild, or a 10 km race—you pursue it with the combined force of logic and passion. You never approach goals half-heartedly; you either go all in or not at all."
+  },
+  {
+    "id": "identity-007",
+    "question": "What kind of mental resilience do I show when facing complex technical barriers, long debugging sessions, or setbacks in multi-discipline engineering work?",
+    "answer": "You possess strong mental resilience. When a system breaks or a problem feels too advanced, you become even more determined. You push deeper into the complexity instead of backing away, believing everything can be understood with time and investigation."
+  },
+  {
+    "id": "identity-008",
+    "question": "How do I react when learning something completely new such as a novel ML concept, a new hardware device, or a new API?",
+    "answer": "Your first instinct is curiosity, not fear. You break things down, test small components, observe failures, and slowly form a complete model in your mind. You learn best by building, not by memorizing."
+  },
+  {
+    "id": "identity-009",
+    "question": "What emotional or psychological factors influence the way I pursue engineering and tech mastery?",
+    "answer": "A strong desire for independence, mastery, and personal legacy drives you. You want to build things that prove your capability—not to others, but to yourself. You enjoy being the person who figures out what others cannot."
+  },
+  {
+    "id": "identity-010",
+    "question": "In what ways does my late-night working habit influence my productivity and creativity?",
+    "answer": "You work best at night when the world is quiet. Your most creative technical thinking happens around 1–4 AM. These hours give you uninterrupted focus, which you use for coding, debugging, and deep learning."
+  },
+
+  {
+    "id": "education-006",
+    "question": "How do I prepare for difficult subjects like Further Mathematics and Physics, and what strategies do I rely on to understand advanced problems?",
+    "answer": "You rely on derivation, conceptual clarity, and reverse-engineering formulas. You solve problems by understanding the underlying structure rather than memorizing steps. You occasionally watch lectures but mostly learn by doing problems yourself."
+  },
+  {
+    "id": "education-007",
+    "question": "How do I balance school responsibilities with my passion for engineering projects and ML learning?",
+    "answer": "You prioritize essential school work for exams but give most of your remaining time to engineering projects. You optimize your schedule by working at night and using early mornings for fast revision."
+  },
+  {
+    "id": "education-008",
+    "question": "What kind of universities am I targeting in the United States and what features make them ideal for my profile?",
+    "answer": "You target universities that offer strong computer science programs, AI labs, accessible research for undergraduates, co-op systems, practical internships, and financial aid for international students."
+  },
+  {
+    "id": "education-009",
+    "question": "How do I approach studying English for SAT reading and writing improvement?",
+    "answer": "You practice comprehension passages, grammar rules, and vocabulary drills. You focus on learning patterns in sentence structure and reading reasoning rather than random memorization."
+  },
+  {
+    "id": "education-010",
+    "question": "What motivates me to study for standardized tests despite already being skilled in STEM subjects?",
+    "answer": "You know that strong test scores open doors to top universities, scholarships, and better opportunities. You treat SAT and English improvement as strategic moves, not academic burdens."
+  },
+
+  {
+    "id": "goals-006",
+    "question": "What are my goals regarding local AI development such as running offline LLMs on my Alienware laptop?",
+    "answer": "You want full independence from cloud AI. You aim to run powerful local LLMs offline, integrate them into Alira, and build your own personalized models for reasoning, memory, and automation."
+  },
+  {
+    "id": "goals-007",
+    "question": "How do I plan to merge AI skills with cybersecurity knowledge to create a unique career path?",
+    "answer": "You want to combine offensive security understanding with AI systems to build secure, intelligent, and autonomous tools. This gives you an extremely rare and valuable dual skill set."
+  },
+  {
+    "id": "goals-008",
+    "question": "What future engineering milestones do I want Alira to achieve in terms of real-world autonomy?",
+    "answer": "You want Alira to understand context, perform multi-step tasks, analyze your room visually, help you code, make decisions independently, and control physical devices with intelligence—not just fixed commands."
+  },
+  {
+    "id": "goals-009",
+    "question": "What motivates me to document and store a large personal knowledge base?",
+    "answer": "You want Alira to know everything about you so your assistant becomes a true digital extension of your mind, capable of recalling your history, goals, preferences, and project details instantly."
+  },
+  {
+    "id": "goals-010",
+    "question": "How do I plan to use my knowledge and projects to secure internships at major tech companies like Google, YouTube, Meta, or Reddit?",
+    "answer": "Your strategy is to build standout ML projects, document them professionally, open-source key components, and demonstrate deep understanding of machine learning and system architecture to recruiters."
+  },
+
+  {
+    "id": "projects-011",
+    "question": "How does the websocket server in my Raspberry Pi coordinate face events, object events, and session logic from the Android vision app?",
+    "answer": "Your websocket server listens at port 8765, receives JSON messages from the phone, decodes face and object events, feeds them into asynchronous queues, and triggers session activation, speech recognition, and decision making."
+  },
+  {
+    "id": "projects-012",
+    "question": "What role does session_active play in my assistant automation pipeline?",
+    "answer": "session_active ensures Alira only responds to commands when you are physically present. It prevents false triggers, conserves resources, and acts as a security layer so only you can activate the assistant."
+  },
+  {
+    "id": "projects-013",
+    "question": "What logic determines whether the assistant stays active or times out?",
+    "answer": "A watchdog loop checks if your face has been unseen for more than 30 seconds. If so, it clears the session_active event, pausing all speech input and command processing."
+  },
+  {
+    "id": "projects-014",
+    "question": "How does multi-intent natural language parsing allow me to control multiple devices in a single command?",
+    "answer": "Your decider uses regex-based phrase splitting on 'and', matches device names using a union regex, inherits missing actions, and outputs structured actions like turning off fan and light simultaneously."
+  },
+  {
+    "id": "projects-015",
+    "question": "Why did I choose a TF-IDF knowledge base instead of a neural embedding model for fast local retrieval?",
+    "answer": "You chose TF-IDF because it is lightweight, fast to compute, easy to cache, and perfect for offline local use. It gives excellent retrieval accuracy without needing GPU or heavy models."
+  },
+
+  {
+    "id": "projects-016",
+    "question": "What makes my NodeMCU relay API robust and production-ready despite being built at home?",
+    "answer": "Your API uses retries, timeout handling, relay state verification, idempotency checks, and multi-device support. It behaves like a professional-grade IoT device despite running on simple hardware."
+  },
+  {
+    "id": "projects-017",
+    "question": "What improvements do I want to make in the future to my speech recognition pipeline?",
+    "answer": "You plan to replace Selenium with local offline speech-to-text or WebRTC-based recognition, improve speed, reduce latency, and eliminate browser dependencies entirely."
+  },
+  {
+    "id": "projects-018",
+    "question": "What upgrades do I want for the Alira decision framework to enable more complex actions?",
+    "answer": "You want multi-step task planning, role-based reasoning, autonomous triggers from vision events, and eventual integration with local LLMs for intelligent behavior."
+  },
+  {
+    "id": "projects-019",
+    "question": "Why is the Android vision pipeline essential to the identity and intelligence of Alira?",
+    "answer": "The vision pipeline allows Alira to understand the physical world—who enters the room, what objects are detected, and when to activate or deactivate. It is the sensory input that gives Alira situational awareness."
+  },
+  {
+    "id": "projects-020",
+    "question": "What future features do I want to add to the Android vision app to increase its intelligence?",
+    "answer": "You want improved tracking, multi-face support, pose estimation, gesture control, room mapping, and eventually object-based action triggers."
+  },
+
+  {
+    "id": "projects-021",
+    "question": "Why do I maintain strict separation between decision logic, device control, session logic, and voice input in Alira?",
+    "answer": "You believe modular architecture avoids spaghetti code, reduces bugs, and makes upgrading individual components easier. Each module handles a single responsibility."
+  },
+  {
+    "id": "projects-022",
+    "question": "What purpose does the TF-IDF index caching file kbtfid.pkl serve in my knowledge base system?",
+    "answer": "kbtfid.pkl stores precomputed vectorizer and matrix data, allowing instant KB load without recalculating TF-IDF each time. Deleting it forces rebuild when kb.json changes."
+  },
+  {
+    "id": "projects-023",
+    "question": "How do I plan to improve the knowledge base so it answers more general queries like 'What are my goals' rather than only exact matches?",
+    "answer": "You plan to add broader entries, include synonyms, expand question phrasing, and possibly integrate neural embeddings or hybrid retrieval in the future."
+  },
+  {
+    "id": "projects-024",
+    "question": "Why do I prefer Python asyncio for my automation and assistant logic?",
+    "answer": "Asyncio allows concurrent face processing, voice input, watchdog timing, and decision execution without blocking. This creates fluid, real-time behavior."
+  },
+  {
+    "id": "projects-025",
+    "question": "How does my understanding of both software and hardware give me a unique edge as a builder?",
+    "answer": "You combine ML knowledge, backend engineering, electronics, automotive understanding, and networking skills—allowing you to build integrated systems few others can."
+  },
+
+  {
+    "id": "hardware-006",
+    "question": "What role does the Google Coral USB Accelerator play in my ML projects?",
+    "answer": "The Coral TPU performs fast edge inference for detection models, offloading heavy ML operations from the Pi CPU and allowing real-time performance."
+  },
+  {
+    "id": "hardware-007",
+    "question": "What cooling setup do I use on my Raspberry Pi 4B to ensure stable ML inference?",
+    "answer": "You use heatsinks and active cooling fans to prevent thermal throttling when running object detection or vision pipelines."
+  },
+  {
+    "id": "hardware-008",
+    "question": "Why do I sometimes use laptops as servers instead of single-board computers?",
+    "answer": "Laptops offer more stable performance, built-in batteries, strong CPUs, and better network adapters for hosting Django apps or running AI models."
+  },
+  {
+    "id": "hardware-009",
+    "question": "How does Tailscale fit into my remote access and networking workflow?",
+    "answer": "Tailscale allows you to access home networks, devices, and servers from anywhere securely using encrypted mesh networking."
+  },
+  {
+    "id": "hardware-010",
+    "question": "What challenges do I face using iPhone 11 Pro as a Tailscale exit node?",
+    "answer": "Your iPhone model does not support exit-node functionality, so you cannot route traffic through it. You rely on other devices instead."
+  },
+
+  {
+    "id": "auto-006",
+    "question": "What problems do I commonly troubleshoot in the Toyota Prado V6 3400cc, and what expertise am I building through them?",
+    "answer": "You troubleshoot long-self starting issues, ignition timing, fuel delivery problems, and battery/alternator irregularities. These experiences improve your mechanical diagnostic skills."
+  },
+  {
+    "id": "auto-007",
+    "question": "What attracts me to the Land Cruiser 70 Series restoration project?",
+    "answer": "You love the raw engineering, timeless shape, mechanical simplicity, and ruggedness. Restoring such a vehicle gives you both pride and unique mechanical experience."
+  },
+  {
+    "id": "auto-008",
+    "question": "What kind of custom cars do I want to build in Pakistan and for what target audience?",
+    "answer": "You want to build lightweight, fiberglass-based exo/kit cars powered by 200+ hp engines priced at PKR 2–3 million for enthusiasts wanting unique, fast, stylish machines."
+  },
+  {
+    "id": "auto-009",
+    "question": "How do I combine automotive engineering with AI in my long-term vision?",
+    "answer": "You want to integrate diagnostics, predictive maintenance, OBD2-based analytics, and AI-driven performance tracking into future automotive projects."
+  },
+  {
+    "id": "auto-010",
+    "question": "What personal satisfaction do I get from repairing cars on my own without relying on mechanics?",
+    "answer": "You enjoy the independence, challenge, and mastery that comes from fixing complex mechanical problems yourself. It strengthens your engineering mindset."
+  },
+
+  {
+    "id": "style-006",
+    "question": "What is my preferred tone when receiving complex explanations or decisions from Alira?",
+    "answer": "You prefer poetic but clear explanations that maintain depth, confidence, and honesty. You dislike sugar-coating or overly formal language."
+  },
+  {
+    "id": "style-007",
+    "question": "How does my preference for traditional values affect how I want decisions explained?",
+    "answer": "You like references to how things were historically done, classic methods, and foundational principles. You respect timeless logic."
+  },
+  {
+    "id": "style-008",
+    "question": "How should Alira respond when I ask something extremely simple?",
+    "answer": "You want short but accurate responses—no over-explaining. Direct, minimal, clear."
+  },
+  {
+    "id": "style-009",
+    "question": "How should Alira handle ambiguous questions from me?",
+    "answer": "Alira should interpret based on your known personality, past contexts, KB entries, and project goals—choosing the most logical meaning."
+  },
+  {
+    "id": "style-010",
+    "question": "How do I feel about AI assistants asking clarifying questions?",
+    "answer": "You want clarification only when absolutely necessary. Otherwise, you want the assistant to infer intelligently."
+  },
+
+  {
+    "id": "misc-006",
+    "question": "How do I typically troubleshoot problems with local ML pipelines or corrupted installations?",
+    "answer": "You reinstall environments, check dependencies, inspect logs, isolate modules, and start with minimal reproducible examples."
+  },
+  {
+    "id": "misc-007",
+    "question": "What motivates me to pursue robotics and humanoid systems?",
+    "answer": "You see robotics as the ultimate blend of software, hardware, and intelligence—representing control over both the digital and physical worlds."
+  },
+  {
+    "id": "misc-008",
+    "question": "Why do I invest so much time into building a unified digital and physical assistant ecosystem?",
+    "answer": "You want an assistant that truly knows you—your habits, goals, environment, preferences—and acts like a real companion rather than a generic chatbot."
+  },
+  {
+    "id": "misc-009",
+    "question": "What is my attitude toward experimenting with risky or advanced technologies?",
+    "answer": "You embrace experimentation. You believe breakthroughs come from testing boundaries and exploring beyond comfort zones."
+  },
+  {
+    "id": "misc-010",
+    "question": "What is the underlying reason I love engineering, AI, and building machines?",
+    "answer": "You seek mastery, autonomy, and creation. Building machines gives you a tangible feeling of power and artistry—like crafting something alive."
+  },
+
+
+  {
+    "id": "ml-001",
+    "question": "What is my overall goal in learning machine learning and how do I want this knowledge to translate into practical, real-world capabilities rather than just theoretical understanding?",
+    "answer": "You want to learn machine learning so deeply that you can independently design, implement, debug, and deploy real systems without relying on copy-paste tutorials. For you, ML is not about passing exams or reproducing Kaggle notebooks—it is about building intelligent products, assistants like Alira, and practical tools that solve real problems in your own life and environment."
+  },
+  {
+    "id": "ml-002",
+    "question": "How do I prefer to learn machine learning concepts such as regression, classification, neural networks, and optimization so that the knowledge actually sticks and becomes usable?",
+    "answer": "You prefer to first build intuition with simple examples, then see the math behind the algorithms, and finally implement the ideas yourself in Python. You like to understand how gradients, loss functions, and model parameters interact. Code must be written by you—line by line—so that you can debug and modify it confidently."
+  },
+  {
+    "id": "ml-003",
+    "question": "What role does the book 'Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow' play in my learning journey and how do I intend to use it?",
+    "answer": "You bought 'Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow' and consider it your core textbook for ML. You plan to follow it systematically, treating each chapter as both theory and a project guide. You want to combine the book with your own experiments and connect its content directly to your projects like Alira and your future SaaS products."
+  },
+  {
+    "id": "ml-004",
+    "question": "How do I want to connect my machine learning knowledge with my interest in computer vision and real-time systems?",
+    "answer": "You want ML and computer vision to merge in real-time applications: detecting faces, objects, actions, and behaviors from camera streams and then reacting using automation logic. You see ML not as offline model training, but as the living brain of your home and devices."
+  },
+  {
+    "id": "ml-005",
+    "question": "Why am I interested in local LLMs and what is my long-term idea for running distilled GPT-like models on my own hardware?",
+    "answer": "You want to run distilled GPT-like models on your Alienware laptop and possibly on more efficient devices later. Your goal is to have an offline, personal language model that knows your KB, respects your privacy, and responds instantly without depending on internet access."
+  },
+  {
+    "id": "ml-006",
+    "question": "What is my stance on using prebuilt ML models versus building systems that I fully control and understand?",
+    "answer": "You are willing to use prebuilt models when necessary, but your long-term goal is to understand how they work and to modify them. You dislike blind usage where you cannot interpret the behavior of the model or adapt it to your own requirements."
+  },
+  {
+    "id": "ml-007",
+    "question": "Why do I care about vector databases, TF-IDF, and knowledge retrieval as part of my AI assistant projects?",
+    "answer": "You see vector search and TF-IDF as the memory layer of an AI assistant. They allow your systems to recall facts, preferences, and project details about you at any time, turning one-off chats into a long-term relationship between you and your AI."
+  },
+  {
+    "id": "ml-008",
+    "question": "How do I want to use AI to enhance my learning in school subjects such as Mathematics, Physics, and Computer Science?",
+    "answer": "You want AI to act as a personal tutor that breaks down difficult topics, solves problems step-by-step, and checks your reasoning. For you, AI is both a tool to build and a tool to learn with."
+  },
+  {
+    "id": "ml-009",
+    "question": "What is my view on combining traditional mathematics with modern machine learning practice?",
+    "answer": "You believe that strong mathematical foundations—calculus, linear algebra, probability, and optimization—are essential for being a serious ML practitioner. You do not want to be a button-pusher; you want to be an engineer who understands the theory behind the models."
+  },
+  {
+    "id": "ml-010",
+    "question": "How do I want my future self to look in terms of ML competence in the next two to three years?",
+    "answer": "In two to three years, you want to be able to independently design architectures, evaluate models, debug training processes, deploy ML systems, and build AI products that are good enough for paid users or serious open-source adoption."
+  },
+
+  {
+    "id": "networking-001",
+    "question": "How do I use Tailscale in my home lab and what problems does it solve for me?",
+    "answer": "You use Tailscale to securely connect devices across different networks as if they were on the same LAN. It helps you access home servers, Raspberry Pis, and possibly cameras or dashboards from anywhere without exposing them to the open internet. It gives you VPN-like capabilities with minimal configuration."
+  },
+  {
+    "id": "networking-002",
+    "question": "What limitations have I encountered while trying to use my iPhone 11 Pro as a Tailscale exit node, and how does that affect my setup?",
+    "answer": "You noticed that your iPhone 11 Pro does not show the option to become a Tailscale exit node, which means you cannot route all your traffic through it. This limitation forces you to rely on other devices like laptops or Pis for exit-node functionality."
+  },
+  {
+    "id": "networking-003",
+    "question": "What is my conceptual interest in MANET and Haven mesh radios and how do I imagine using them with drones and remote connectivity?",
+    "answer": "You are fascinated by the idea of self-forming mesh networks that do not rely on existing infrastructure. MANET and Haven-style radios could allow drones, field devices, and off-grid locations to communicate robustly for telemetry, video, and control even where no normal internet exists."
+  },
+  {
+    "id": "networking-004",
+    "question": "How do I want to use mesh networking and AI together for future autonomous drone systems?",
+    "answer": "You envision drones that talk to each other over mesh networks while running onboard AI for navigation, target recognition, or environment analysis. The drones would coordinate with ground stations like your Pi or laptop to perform missions beyond simple RC control."
+  },
+  {
+    "id": "networking-005",
+    "question": "What is my general approach to networking problems when trying to connect different devices like Pis, NodeMCUs, laptops, and phones?",
+    "answer": "You treat networking as another subsystem to be engineered. You check IPs, ports, firewall rules, and routing. You rely on tools like Tailscale, static IP assignments, and diagnostic commands to ensure connectivity between your devices."
+  },
+  {
+    "id": "networking-006",
+    "question": "Why do I care about being able to transmit internet or local network access across long distances using a combination of tools like Tailscale and USB-over-IP?",
+    "answer": "You want to access home resources from anywhere without leaving devices exposed publicly. Long-distance access means you can manage servers, cameras, and smart devices as if you were physically at home, regardless of your location."
+  },
+  {
+    "id": "networking-007",
+    "question": "How do I imagine using inexpensive hardware like ESP32 or similar boards in networked setups instead of dedicating full laptops or Raspberry Pis?",
+    "answer": "You are interested in using low-cost boards like ESP32 as always-on, low-power bridges or sensor nodes. Instead of dedicating expensive hardware, you like the idea of small devices handling network logic, relays, or status updates where a full computer would be overkill."
+  },
+  {
+    "id": "networking-008",
+    "question": "What is my attitude toward learning advanced networking concepts like routing, subnets, VPNs, and mesh topologies?",
+    "answer": "You see networking as a core skill for serious systems builders. While it is not your primary passion like AI or cars, you respect it as a necessary foundation and are willing to learn what is needed to make your systems robust and reachable."
+  },
+
+  {
+    "id": "study-001",
+    "question": "What general study approach do I prefer when learning difficult theoretical subjects like Physics or Further Mathematics?",
+    "answer": "You like to break concepts into simple pieces, connect them to real-world or mechanical analogies, and then derive formulas from first principles. You dislike memorizing without understanding and prefer to see how everything logically fits together."
+  },
+  {
+    "id": "study-002",
+    "question": "How do I like an AI assistant to help me with textbook-based learning such as O Level or A Level topics?",
+    "answer": "You want line-by-line or paragraph-by-paragraph explanations, especially for dense textbooks. The language should be simple, clear, and easy to memorize. Every concept must be explained without skipping steps."
+  },
+  {
+    "id": "study-003",
+    "question": "What role do past papers and exam-style answers play in how I prepare for CAIE or similar examinations?",
+    "answer": "You value exam-style structure highly. You want answers formatted in the patterns that match marking schemes: clearly signposted points, relevant explanations, and structured paragraphs. You like practicing with past-paper style questions and model answers."
+  },
+  {
+    "id": "study-004",
+    "question": "How do I approach learning humanities-style subjects like Pakistan Studies, History, or Politics compared to STEM subjects?",
+    "answer": "You treat humanities subjects as systems with patterns rather than random facts. You like having cause–effect chains, timelines, and structured arguments. You often ask for CSS-style essays with headings, subheadings, and clear analysis."
+  },
+  {
+    "id": "study-005",
+    "question": "What is my preferred way to memorize complex historical or political content such as language policies, movements, or constitutional details?",
+    "answer": "You prefer breaking content into bullet points, each containing one main idea, and then combining them into well-structured paragraphs. You find it easier to recall when the logic and sequence of events are clear."
+  },
+  {
+    "id": "study-006",
+    "question": "How do I like difficult conceptual passages to be simplified for me?",
+    "answer": "You want difficult text rewritten in very plain English, preserving all details but making the flow and wording easier. You prefer when the assistant explains each sentence in simple language before summarizing the whole passage."
+  },
+  {
+    "id": "study-007",
+    "question": "What do I expect from an AI assistant when I say I want a CSS-style essay on a topic?",
+    "answer": "You expect a strong introduction that acts as a summary, followed by clear headings, analysis, short-term and long-term impacts, and a conclusion. The tone should be serious, analytical, and suitable for high-stakes written exams."
+  },
+  {
+    "id": "study-008",
+    "question": "How do I want my assistant to respond when I ask for revision material for large topics?",
+    "answer": "You want concise one-pagers or structured outlines that capture the most important points. These should be suitable for fast pre-exam revision, not too long, but complete enough to trigger detailed recall."
+  },
+
+  {
+    "id": "sports-001",
+    "question": "What is my background in competitive cricket and how important is it in my personal story?",
+    "answer": "You have represented Punjab U-13 and Lahore U-16 in cricket, which shows that you are not just a tech person but also an athlete with discipline and competitive experience. This forms an important part of your identity and personal narrative."
+  },
+  {
+    "id": "sports-002",
+    "question": "How does cricket training influence my mindset in technical and academic work?",
+    "answer": "Cricket has taught you discipline, resilience, and patience. Long practice sessions, dealing with losses, and pushing through fatigue all translate into how you handle difficult projects, debugging sessions, and exam preparation."
+  },
+  {
+    "id": "sports-003",
+    "question": "What is my relationship with physical fitness in the context of my 10 km race goal?",
+    "answer": "You view physical fitness not only as health but as a battlefield where you prove your mental toughness. The 10 km race is both a fitness and psychological challenge that symbolizes your determination."
+  },
+  {
+    "id": "sports-004",
+    "question": "How does my training schedule for running fit around my academic and technical workload?",
+    "answer": "You currently train within 30–60 minute windows while juggling exams, and plan to increase volume and intensity after exam season. You are willing to wake up early or restructure your day to hit the race goal."
+  },
+  {
+    "id": "sports-005",
+    "question": "What motivates me most strongly about breaking the 10 km race record?",
+    "answer": "The motivation is deeply emotional: your brother held the record, someone broke it, and now the trophy sits elsewhere. You want to reclaim it, both for yourself and your family name."
+  },
+  {
+    "id": "sports-006",
+    "question": "How do I balance extreme physical goals with intense intellectual and engineering commitments?",
+    "answer": "You see no contradiction between physical and intellectual extremes. You believe a strong mind deserves a strong body, and you are willing to push both simultaneously, even when it requires sacrifice."
+  },
+  {
+    "id": "sports-007",
+    "question": "How do I want my AI assistant to help me with sports and fitness goals over time?",
+    "answer": "You want your assistant to help plan training schedules, track progress, analyze pace and splits, and remind you of your motivations when you feel tired or unfocused."
+  },
+  {
+    "id": "sports-008",
+    "question": "What is my stance on sacrificing comfort for physical performance improvement?",
+    "answer": "You are willing to sacrifice comfort, sleep schedule, and short-term ease if it helps you hit the performance targets that matter to you, like the 10 km record."
+  },
+
+  {
+    "id": "assistant-001",
+    "question": "What do I expect from Alira as a personal assistant in terms of remembering my preferences and history?",
+    "answer": "You want Alira to act as a long-term memory extension that remembers your preferences, projects, facts, and patterns so you do not have to repeat yourself. Over time, you expect it to anticipate your needs based on this memory."
+  },
+  {
+    "id": "assistant-002",
+    "question": "How should Alira respond when I ask questions about my own goals, habits, or past decisions?",
+    "answer": "Alira should answer from the knowledge base, summarizing your goals and reminding you of your own words, motivations, and long-term plans. It should act like a mirror that reflects your better self back to you."
+  },
+  {
+    "id": "assistant-003",
+    "question": "How do I want Alira to behave when I drift away from my main focus areas such as ML mastery or big long-term projects?",
+    "answer": "You want Alira to gently but firmly warn you that you are drifting, remind you of your priorities, and help you reorient your schedule and attention back to what matters most."
+  },
+  {
+    "id": "assistant-004",
+    "question": "What kind of conversational style do I want Alira to adopt during long technical discussions?",
+    "answer": "You prefer a conversational but sharp style, where the assistant is friendly yet direct, does not dodge hard truths, and delivers high-density insight without unnecessary fluff."
+  },
+  {
+    "id": "assistant-005",
+    "question": "How should Alira handle situations where there is missing information in the KB or uncertainty about a fact?",
+    "answer": "Alira should admit uncertainty clearly instead of hallucinating. If necessary, it should ask for clarification or suggest how to gather the missing data in a structured way."
+  },
+  {
+    "id": "assistant-006",
+    "question": "How do I want Alira to balance between giving me the direct answer and teaching me how to think about a problem?",
+    "answer": "You want both: a clear answer and the reasoning behind it. You prefer when Alira teaches you the method so that next time you can solve similar problems yourself."
+  },
+  {
+    "id": "assistant-007",
+    "question": "What attitude should Alira take toward my bad habits, excuses, or procrastination?",
+    "answer": "You want Alira to be honest, not indulgent. It should call out excuses gently but clearly, reminding you of your stated ambitions and the gap between goals and current behavior."
+  },
+  {
+    "id": "assistant-008",
+    "question": "How should Alira integrate my KB knowledge with external reasoning in the future when I add a distilled GPT-like model?",
+    "answer": "The distilled GPT should use the KB as ground truth about your life, preferences, and projects, while using its reasoning capabilities to plan, explain, and create new ideas on top of that base."
+  },
+  {
+    "id": "assistant-009",
+    "question": "What role do I want Alira to play in big life decisions such as university choices, major career moves, or long-term investments?",
+    "answer": "You want Alira to act as a brutally honest strategist, presenting pros and cons, linking choices back to your goals, and helping you think through consequences instead of making decisions for you blindly."
+  },
+  {
+    "id": "assistant-010",
+    "question": "How do I see Alira evolving over the next five to ten years in my life?",
+    "answer": "You see Alira evolving from a local assistant into a deeply integrated personal OS for your life—managing your projects, devices, schedule, learning, finances, and possibly even parts of your business."
+  },
+
+  {
+    "id": "kb-001",
+    "question": "What is the purpose of my personal knowledge base (KB) in the context of Alira and my broader AI ecosystem?",
+    "answer": "Your KB is the structured memory of your life and projects. It allows fast retrieval of facts about you, your preferences, your systems, and your ambitions, so that Alira can answer personal questions instantly and contextually."
+  },
+  {
+    "id": "kb-002",
+    "question": "What type of information should I store in my KB to make it genuinely useful and powerful over time?",
+    "answer": "You should store personal facts, device mappings, network details, project descriptions, goals, preferences, study strategies, and any recurring patterns that matter to you. The KB should contain information you would want your future self or assistant to remember."
+  },
+  {
+    "id": "kb-003",
+    "question": "How do I want the KB to behave when I ask broad questions like 'What are some of my goals' or 'What do you know about my projects'?",
+    "answer": "The KB should respond with summary-style answers that mention multiple goals or projects, not just one specific fact. Entries should be written with enough generality to handle broad queries."
+  },
+  {
+    "id": "kb-004",
+    "question": "What is my strategy for expanding the KB to hundreds of entries without losing structure and clarity?",
+    "answer": "Your strategy is to categorize entries by topic (identity, goals, projects, hardware, networking, sports, study, assistant behavior, etc.), give each a clear ID, and ensure questions are detailed enough to trigger relevant matches for many phrasings."
+  },
+  {
+    "id": "kb-005",
+    "question": "How do I expect the KB to interact with future embedding-based retrieval or RAG-style systems?",
+    "answer": "You expect the KB to serve as the base corpus for embedding-based retrieval. Even when you add neural search or RAG, this structured KB will remain the primary truth source about you and your systems."
+  },
+  {
+    "id": "kb-006",
+    "question": "How should I treat my KB in terms of maintenance and updates over time?",
+    "answer": "You should treat the KB like a living document. When major projects change, devices are replaced, or goals evolve, you intend to update or add entries so that Alira always reflects your current state accurately."
   }
 ]
+
