@@ -748,6 +748,12 @@
     "id": "kb-006",
     "question": "How should I treat my KB in terms of maintenance and updates over time?",
     "answer": "You should treat the KB like a living document. When major projects change, devices are replaced, or goals evolve, you intend to update or add entries so that Alira always reflects your current state accurately."
+  },
+  {
+    "id": "kb-006",
+    "question": "My Wi-Fi credentials? My wifi username and password",
+    "answer": "Your Wi-Fi SSID is Nova and password is roomi160 "
   }
+
 ]
 
