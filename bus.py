@@ -7,7 +7,7 @@ object_q = asyncio.Queue()
 session_active = asyncio.Event()
 
 TARGET_NAME = "Rommel"
-TIMEOUT_S = 30
+TIMEOUT_S = 3000
 _last_seen_ts = 0.0
 
 def mark_target_seen():
